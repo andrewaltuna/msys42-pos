@@ -1,0 +1,7 @@
+{% extends 'pos_app/openpos.html' %}
+{% load static %}
+
+{% block content %}
+<h1>Item no longer available</h1>
+<a class='btn btn-danger' href="{% url 'openpos' %}">Return to POS</a>
+{% endblock %}

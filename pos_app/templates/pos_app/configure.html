@@ -1,0 +1,32 @@
+{% extends 'pos_app/openpos.html' %}
+{% load static %}
+
+{% block content %}
+    <h1>Configure Items</h1>
+    <div>
+        <a class='float-left' href="{% url 'openpos' %}">Return</a>
+        <a class='float-right' href="{% url 'add-item' %}">Add New</a>
+        <table class='table'>
+            <thead>
+                <th>Item Name</th>
+                <th>Item Price</th>
+                <th>Stock</th>
+                <th>Action</th>
+            </thead>
+            <tbody>
+                {% for i in item %}
+                <tr>
+                    <td>{{i.item_name}}</td>
+                    <td>PHP {{i.item_price}}</td>
+                    <td>{{i.stock_quantity}}</td>
+                    <td>
+                        <a href="{% url 'update-item' i.id %}" class="btn btn-primary">Update</a>
+                        <a href="{% url 'delete-item' i.id %}" class="btn btn-danger">Delete</a>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+
+{% endblock %}
